@@ -1,0 +1,147 @@
+@mixin flex-direction() {
+    flex-direction: column;
+}
+* {
+  border: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} 
+li {
+    list-style-type: disc;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  font-size: 1.1rem;
+}
+.header {
+  display: flex;
+  margin-bottom: -3px;
+  font-size: 1.5rem;
+  color: #000;
+  width: 70%;
+  a,
+  i {
+      &:hover {
+        color: #0284ff;
+      }
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+  }
+  
+}
+.body_cv {
+  @include flex-direction;
+  width: 70%;
+  margin-top: 10px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 3px 0px #000;
+}
+.div-padrao {
+  width: 90%;
+}
+.linha {
+  height: 2px;
+  width: 90%;
+  background-color: #000;
+}
+.body_header {
+  width: 100%;
+  .title {
+    margin-right: 10px;
+    color: #000;
+    text-transform: uppercase;
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: -1px;
+    }
+    h2 {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+  }
+  .contact {
+    @include flex-direction;
+    a {
+      text-decoration: none;
+      color: #000;
+      font-size: 1.2rem;
+      &:hover {
+        color: #4e4e4e;
+      }
+    }
+    i {
+      font-size: 1.3rem;
+      margin-right: 4px;
+    }
+    p {
+      color: #000;
+      font-size: 1.2rem;
+    }
+  }
+}
+.body_skills {
+  @include flex-direction;
+  margin-top: 8px;
+  ul {
+    display: flex;
+    div {
+      margin-right: 100px;
+    }
+  }
+}
+.experience {
+  margin-top: 8px;
+  @include flex-direction;
+}
+.education {
+  .education_align {
+    @include flex-direction;
+  }
+  p {
+    font-weight: bold;
+  }
+}
+.languages {
+ li {
+    margin-bottom: -1px;
+ }   
+}
+
+@media screen and (max-width: 767px){
+  .header,
+  .body_cv {
+    width: 90%;
+  }
+  .body_header {
+    @include flex-direction();
+    .title {
+      h1, h2 {
+        font-size: 1.6rem;
+      }
+    }
+    .contact {
+        a, i, p {
+          font-size: 1.3rem;
+        }
+        margin-bottom: 20px;
+    }
+  }
+  .body_skills {
+    ul {
+    @include flex-direction;
+    }
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .header,
+  .body_cv {
+    width: 90%;
+  }
+}
